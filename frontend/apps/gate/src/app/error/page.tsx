@@ -18,9 +18,6 @@
 
 'use client';
 
-import Alert from '@oxygen-ui/react/src/components/Alert/Alert';
-import AlertTitle from '@oxygen-ui/react/src/components/AlertTitle/AlertTitle';
-import Typography from '@oxygen-ui/react/src/components/Typography/Typography';
 import React, { useState, useEffect, ReactElement } from 'react';
 
 const FallbackErrorMessage: string = 'Sorry, but we encountered an error while processing your request.';
@@ -37,18 +34,25 @@ export default function ErrorPage(): ReactElement {
   }, []);
 
   return (
-    <Alert severity="error">
-      <AlertTitle>
-        <Typography variant="h6">Something didn&apos;t go as expected!</Typography>
-      </AlertTitle>
-      <Typography variant="body1" sx={{ mt: 3 }}>
+    <div style={{
+      padding: '24px',
+      backgroundColor: '#ffebee',
+      border: '1px solid #ffcdd2',
+      borderRadius: '8px',
+      margin: '24px',
+      fontFamily: 'Arial, sans-serif'
+    }}>
+      <h2 style={{ color: '#c62828', marginTop: 0 }}>
+        Something didn&apos;t go as expected!
+      </h2>
+      <p style={{ marginTop: '24px', color: '#424242' }}>
         {errorMsg}
-      </Typography>
+      </p>
       {errorCode !== '' && (
-        <Typography variant="body1" sx={{ mt: 2 }}>
+        <p style={{ marginTop: '16px', color: '#424242' }}>
           Error Code: {errorCode}
-        </Typography>
+        </p>
       )}
-    </Alert>
+    </div>
   );
 }

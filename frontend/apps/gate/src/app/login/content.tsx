@@ -93,6 +93,7 @@ const LoginPageContent = function (): ReactElement {
     while (continueFlow) {
       try {
         const res = await axios.post(AppConfig.flowExecutionEndpoint, {
+          applicationId: appId,
           flowId: currentFlowId,
           inputs: currentInputs,
         }, {
